@@ -22,6 +22,7 @@ elementos, cores e layout.
 1. ***Extrair*** a pasta e ***renomear*** de: ***CRUD-AJAX-PHP-master*** para: ***CRUD-AJAX-PHP***.
 2. Ir até o diretório ***api -> config*** 	e ***executar*** o arquivo ***people.sql***.
 3. No ***mesmo diretório*** no arquivo ***database.php*** é necessário ***alterar*** as ***credenciais*** de ***username*** e ***password***.
+4. Então é só ***abrir*** o ***navegador*** no ***link http://localhost/CRUD-AJAX-PHP/***
 
 ## Conclusão
 Seguindo os requisitos utilizei PHP Vanilla no back end criando uma REST API, no front end foi utilizado jQuery e Bootstrap e MYSQL para o banco de dados.
