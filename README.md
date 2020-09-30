@@ -46,6 +46,6 @@ Segue as telas do sistema:
 
 ![Delete](https://github.com/AllanFelipeReis/CRUD-AJAX-PHP/blob/master/prints/Delete.png)
 
-5. E por ultimo a página de visualização de um único funcionário:
+5. E por último a página de visualização de um único funcionário:
 
 ![ReadOne](https://github.com/AllanFelipeReis/CRUD-AJAX-PHP/blob/master/prints/ReadOne.png)
