@@ -38,7 +38,7 @@ Segue as telas do sistema:
 
 ![Create](https://github.com/AllanFelipeReis/CRUD-AJAX-PHP/blob/master/prints/Create.png)
 
-3. A tela de edição que já vem com os campos atribuídos para serem feitas as alterações:
+3. A tela de edição que já vem com os campos preenchidos para serem feitas as alterações:
 
 ![Update](https://github.com/AllanFelipeReis/CRUD-AJAX-PHP/blob/master/prints/Update.png)
 
