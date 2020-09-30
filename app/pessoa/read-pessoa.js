@@ -26,9 +26,9 @@ function showPeople(){
             <tr>
                 <th>Nome</th>
                 <th>CPF</th>
-                <th>Genero</th>
+                <th>Gênero</th>
                 <th>Data de Nascimento</th>
-                <th>Action</th>
+                <th>Ações</th>
             </tr>`;
             
             //Percorre a lista

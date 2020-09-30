@@ -25,7 +25,7 @@ $(document).ready(function(){
                 </tr>
             
                 <tr>
-                    <td>Genero</td>
+                    <td>Gênero</td>
                     <td>` + data.gender + `</td>
                 </tr>
             

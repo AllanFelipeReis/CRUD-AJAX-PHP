@@ -35,7 +35,7 @@ $(document).ready(function(){
                             <td><input value=\"` + cpf + `\" type='text' name='cpf' class='form-control' required /></td>
                         </tr>
                             <tr>
-                                <td>Genero</td>
+                                <td>Gênero</td>
                                     <td>
                                         <select class='form-control' name='gender'>
                                             <option value='` + genders[0] + `'>` + genders[0] + `</option>

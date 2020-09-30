@@ -14,7 +14,7 @@ $(document).ready(function(){
                 <table class='table table-hover table-responsive table-bordered'>
             
                     <tr>
-                        <td>Name</td>
+                        <td>Nome</td>
                         <td><input type='text' name='name' class='form-control' required /></td>
                     </tr>
             
@@ -24,7 +24,7 @@ $(document).ready(function(){
                     </tr>
             
                     <tr>
-                        <td>Genero</td>
+                        <td>Gênero</td>
                         <td>
                             <select class='form-control' name='gender'>
                                 <option value='Masculino'>Masculino</option>
