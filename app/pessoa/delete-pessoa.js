@@ -6,7 +6,7 @@ $(document).ready(function(){
 
         bootbox.confirm({
         
-            message: "<h4>Voçê tem certeza?</h4>",
+            message: "<h4>Você tem certeza?</h4>",
             buttons: {
                 confirm: {
                     label: '<span class="glyphicon glyphicon-ok"></span> Sim',
