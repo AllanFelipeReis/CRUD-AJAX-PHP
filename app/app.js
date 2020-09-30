@@ -5,7 +5,7 @@ $(document).ready(function(){
         <div class='container'>
  
             <div class='page-header'>
-                <h1 id='page-title'>Lista de Pessoas</h1>
+                <h1 id='page-title'>Lista de Funcionarios</h1>
             </div>
  
             <div id='page-content'></div>

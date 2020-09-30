@@ -1,24 +1,24 @@
 $(document).ready(function(){
  
-    // Carrega a lista de pessoas quando iniciar a pagina
-    showPeople();
+    // Carrega a lista de funcionarios quando iniciar a pagina
+    showFuncionario();
  
 });
 
-// Quando o botao read-person for acionado
-$(document).on('click', '.read-person-button', function(){
-    showPeople();
+// Quando o botao read-employee for acionado
+$(document).on('click', '.read-employee-button', function(){
+    showFuncionario();
 });
 
-// Funcao para mostrar a lista de pessoas
-function showPeople(){ 
+// Funcao para mostrar a lista de funcionarios
+function showFuncionario(){ 
 
-    // Recebendo a lista de pessoas pela api
-    $.getJSON("http://localhost/CRUD-AJAX-PHP/api/pessoa/read.php", function(data){
+    // Recebendo a lista de funcionarios pela api
+    $.getJSON("http://localhost/CRUD-AJAX-PHP/api/funcionario/read.php", function(data){
     
-        var read_person_html=`
-        <div id='create-person' class='btn btn-primary pull-right create-person-button'>
-            <span class='glyphicon glyphicon-plus'></span> Cadastrar Pessoa
+        var read_employee_html=`
+        <div id='create-employee' class='btn btn-primary pull-right create-employee-button'>
+            <span class='glyphicon glyphicon-plus'></span> Cadastrar Funcionário
         </div>
 
         <table class='table table-bordered table-hover text-center'>
@@ -35,7 +35,7 @@ function showPeople(){
             $.each(data.records, function(key, val) {
             
                 // Cria uma nova linha
-                read_person_html+=`
+                read_employee_html+=`
                     <tr>
             
                         <td>` + val.name + `</td>
@@ -44,15 +44,15 @@ function showPeople(){
                         <td>` + val.birthDate + `</td>
             
                         <td>
-                            <button class='btn btn-primary read-one-person-button' data-id='` + val.id + `'>
+                            <button class='btn btn-primary read-one-employee-button' data-id='` + val.id + `'>
                                 <span class='glyphicon glyphicon-eye-open'></span> Vizualizar
                             </button>
             
-                            <button class='btn btn-info update-person-button' data-id='` + val.id + `'>
+                            <button class='btn btn-info update-employee-button' data-id='` + val.id + `'>
                                 <span class='glyphicon glyphicon-edit'></span> Editar
                             </button>
             
-                            <button class='btn btn-danger delete-person-button' data-id='` + val.id + `'>
+                            <button class='btn btn-danger delete-employee-button' data-id='` + val.id + `'>
                                 <span class='glyphicon glyphicon-remove'></span> Deletar
                             </button>
                         </td>
@@ -60,8 +60,8 @@ function showPeople(){
                     </tr>`;
             });
         
-        read_person_html+=`</table>`;
-        $("#page-content").html(read_person_html);
+        read_employee_html+=`</table>`;
+        $("#page-content").html(read_employee_html);
     });
-    changePageTitle("Lista de Pessoas");
+    changePageTitle("Funcionários");
 }

@@ -8,40 +8,40 @@ header('Content-Type: application/json');
   
 // importando os arquivos necessarios
 include_once '../config/database.php';
-include_once '../objects/pessoa.php';
+include_once '../objects/funcionario.php';
   
 // Inicializando o banco
 $database = new Database();
 $db = $database->getConnection();
   
 //Inicializando o objeto
-$pessoa = new Pessoa($db);
+$funcionario = new Funcionario($db);
   
 //Setta o id
-$pessoa->id = isset($_GET['id']) ? $_GET['id'] : die();
+$funcionario->id = isset($_GET['id']) ? $_GET['id'] : die();
   
-// Pega a pessoa a ser editada
-$pessoa->readOne();
+// Pega o funcionario a ser visualizado
+$funcionario->readOne();
   
-if($pessoa->name!=null){
+if($funcionario->name!=null){
     // Cria um array
-    $pessoa_arr = array(
-        "id" =>  $pessoa->id,
-        "name" => $pessoa->name,
-        "cpf" => $pessoa->cpf,
-        "gender" => $pessoa->gender,
-        "birthDate" => $pessoa->birthDate,
+    $funcionario_arr = array(
+        "id" =>  $funcionario->id,
+        "name" => $funcionario->name,
+        "cpf" => $funcionario->cpf,
+        "gender" => $funcionario->gender,
+        "birthDate" => $funcionario->birthDate,
   
     );
 
     http_response_code(200);
   
-    echo json_encode($pessoa_arr);
+    echo json_encode($funcionario_arr);
 }
   
 else{
     http_response_code(404);
   
-    echo json_encode(array("message" => "Person does not exist."));
+    echo json_encode(array("message" => "Employee does not exist."));
 }
 ?>

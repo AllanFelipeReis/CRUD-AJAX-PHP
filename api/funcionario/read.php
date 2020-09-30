@@ -5,32 +5,32 @@ header("Content-Type: application/json; charset=UTF-8");
   
 // importando os arquivos necessarios
 include_once '../config/database.php';
-include_once '../objects/pessoa.php';
+include_once '../objects/funcionario.php';
 
 // Inicializando o banco
 $database = new Database();
 $db = $database->getConnection();
 
 //Inicializando o objeto
-$pessoa = new Pessoa($db);
+$funcionario = new Funcionario($db);
 
-// query pessoa
-$stmt = $pessoa->read();
+// query funcionario
+$stmt = $funcionario->read();
 $num = $stmt->rowCount();
 
 // verifica se existe dados
 if($num>0){
   
-    // array pessoa
-    $pessoa_arr=array();
-    $pessoa_arr["records"]=array();
+    // array funcionario
+    $funcionario_arr=array();
+    $funcionario_arr["records"]=array();
   
     // Recuperando dados da table
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         // extair linha
         extract($row);
   
-        $pessoa_item=array(
+        $funcionario_item=array(
             "id" => $id,
             "name" => $name,
             "cpf" => $cpf,
@@ -38,17 +38,17 @@ if($num>0){
             "birthDate" => $birthDate
         );
   
-        array_push($pessoa_arr["records"], $pessoa_item);
+        array_push($funcionario_arr["records"], $funcionario_item);
     }
   
     http_response_code(200);
   
-    echo json_encode($pessoa_arr);
+    echo json_encode($funcionario_arr);
 }else{
   
     http_response_code(404);
   
     echo json_encode(
-        array("message" => "No person found.")
+        array("message" => "No employee found.")
     );
 }

@@ -1,8 +1,8 @@
 $(document).ready(function(){
  
-    $(document).on('click', '.delete-person-button', function(){
+    $(document).on('click', '.delete-employee-button', function(){
         
-        var person_id = $(this).attr('data-id');
+        var employee_id = $(this).attr('data-id');
 
         bootbox.confirm({
         
@@ -21,13 +21,13 @@ $(document).ready(function(){
                 if(result==true){
  
                     $.ajax({
-                        url: "http://localhost/CRUD-AJAX-PHP/api/pessoa/delete.php",
+                        url: "http://localhost/CRUD-AJAX-PHP/api/funcionario/delete.php",
                         type : "POST",
                         dataType : 'json',
-                        data : JSON.stringify({ id: person_id }),
+                        data : JSON.stringify({ id: employee_id }),
                         success : function(result) {
                  
-                            showPeople();
+                            showFuncionario();
                         },
                         error: function(xhr, resp, text) {
                             console.log(xhr, resp, text);

@@ -1,16 +1,16 @@
 $(document).ready(function(){
  
-    $(document).on('click', '.create-person-button', function(){
+    $(document).on('click', '.create-employee-button', function(){
         
-        $.getJSON("http://localhost/CRUD-AJAX-PHP/api/pessoa/read.php", function(data){
+        $.getJSON("http://localhost/CRUD-AJAX-PHP/api/funcionario/read.php", function(data){
 
             
-        var create_person_html=`
-            <div id='read-person' class='btn btn-primary pull-right read-person-button'>
-                <span class='glyphicon glyphicon-list'></span> Listar Pessoas
+        var create_employee_html=`
+            <div id='read-employee' class='btn btn-primary pull-right read-employee-button'>
+                <span class='glyphicon glyphicon-list'></span> Listar Funcionários
             </div>
 
-            <form id='create-person-form' action='#' method='post' border='0'>
+            <form id='create-employee-form' action='#' method='post' border='0'>
                 <table class='table table-hover table-responsive table-bordered'>
             
                     <tr>
@@ -34,7 +34,7 @@ $(document).ready(function(){
                     </tr>
                     
                     <tr>
-                        <td>Data de Aniversario</td>
+                        <td>Data de Nascimento</td>
                         <td><input type='date' name='birthDate' class='form-control' required /></td>
                     </tr>
         
@@ -42,7 +42,7 @@ $(document).ready(function(){
                         <td></td>
                         <td>
                             <button type='submit' class='btn btn-primary'>
-                                <span class='glyphicon glyphicon-plus'></span> Cadastrar Pessoa
+                                <span class='glyphicon glyphicon-plus'></span> Cadastrar
                             </button>
                         </td>
                     </tr>
@@ -50,24 +50,24 @@ $(document).ready(function(){
                 </table>
             </form>`;
 
-            $("#page-content").html(create_person_html);
+            $("#page-content").html(create_employee_html);
             
-            changePageTitle("Cadastrar Pessoa");
+            changePageTitle("Cadastro");
         });
         
     });
  
-    $(document).on('submit', '#create-person-form', function(){
+    $(document).on('submit', '#create-employee-form', function(){
 
         var form_data=JSON.stringify($(this).serializeObject());
 
         $.ajax({
-            url: "http://localhost/CRUD-AJAX-PHP/api/pessoa/create.php",
+            url: "http://localhost/CRUD-AJAX-PHP/api/funcionario/create.php",
             type : "POST",
             contentType : 'application/json',
             data : form_data,
             success : function(result) {
-                showPeople();
+                showFuncionario();
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);

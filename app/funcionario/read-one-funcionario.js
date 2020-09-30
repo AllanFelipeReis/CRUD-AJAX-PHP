@@ -1,15 +1,15 @@
 $(document).ready(function(){
  
-    $(document).on('click', '.read-one-person-button', function(){
+    $(document).on('click', '.read-one-employee-button', function(){
 
         var id = $(this).attr('data-id');
 
-        $.getJSON("http://localhost/CRUD-AJAX-PHP/api/pessoa/read_one.php?id=" + id, function(data){
+        $.getJSON("http://localhost/CRUD-AJAX-PHP/api/funcionario/read_one.php?id=" + id, function(data){
 
-        var read_one_person_html=`
+        var read_one_employee_html=`
         
-            <div id='read-person' class='btn btn-primary pull-right read-person-button'>
-                <span class='glyphicon glyphicon-list'></span> Listar Pessoas
+            <div id='read-employee' class='btn btn-primary pull-right read-employee-button'>
+                <span class='glyphicon glyphicon-list'></span> Listar Funcionários
             </div>
 
             <table class='table table-bordered table-hover'>
@@ -30,12 +30,12 @@ $(document).ready(function(){
                 </tr>
             
                 <tr>
-                    <td>Data de aniversario</td>
+                    <td>Data de Nascimento</td>
                     <td>` + data.birthDate + `</td>
                 </tr>
             
             </table>`;
-        $("#page-content").html(read_one_person_html);
+        $("#page-content").html(read_one_employee_html);
             
         changePageTitle("Detalhes");
         });

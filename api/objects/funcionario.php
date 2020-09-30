@@ -1,9 +1,9 @@
 <?php
-class Pessoa{
+class Funcionario{
 
     //Conexão com o banco e a table name
     private $conn;
-    private $table_name = "people";
+    private $table_name = "funcionario";
 
     //Propriedades do objeto
     public $id;
@@ -17,7 +17,7 @@ class Pessoa{
         $this->conn = $db;
     }
 
-    //Lê as pessoas
+    //Lê os Funcionarios
     function read(){
 
         // Query seleciona tudo
@@ -33,7 +33,7 @@ class Pessoa{
 
     }
 
-    // Cria a pessoa
+    // Cria um Funcionario
     function create(){
     
         // query para inserir
@@ -92,7 +92,7 @@ class Pessoa{
         $this->gender = $row['gender'];
     }
 
-    // update pessoa
+    // update Funcionario
     function update(){
     
         // Query para atualização
@@ -129,7 +129,7 @@ class Pessoa{
         return false;
     }
     
-    // delete a pessoa
+    // delete um Funcionario
     function delete(){
     
         // Query de delete

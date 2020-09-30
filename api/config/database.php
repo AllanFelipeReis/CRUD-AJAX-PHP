@@ -3,7 +3,7 @@ class Database{
 
     //Credenciais
     private $host = "localhost";
-    private $db_name = "pessoas";
+    private $db_name = "empresa";
     private $username = "root";
     private $password = "admin";
     public $conn;

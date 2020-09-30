@@ -8,33 +8,39 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
   
 // importando os arquivos necessarios
 include_once '../config/database.php';
-include_once '../objects/pessoa.php';
+include_once '../objects/funcionario.php';
 
 // Inicializando o banco
 $database = new Database();
 $db = $database->getConnection();
 
 //Inicializando o objeto
-$pessoa = new Pessoa($db);
+$funcionario = new Funcionario($db);
   
 // Pega o id
 $data = json_decode(file_get_contents("php://input"));
   
-// Setta o id 
-$pessoa->id = $data->id;
+// definir propriedade de ID da funcionario a ser editada
+$funcionario->id = $data->id;
   
-// Deleta a pessoa
-if($pessoa->delete()){
+// settando os atributos
+$funcionario->name = $data->name;
+$funcionario->cpf = $data->cpf;
+$funcionario->gender = $data->gender;
+$funcionario->birthDate = $data->birthDate;
+  
+// atualizando o funcionario
+if($funcionario->update()){
   
     http_response_code(200);
   
-    echo json_encode(array("message" => "Person was deleted."));
+    echo json_encode(array("message" => "Employee was updated."));
 }
   
 else{
   
     http_response_code(503);
   
-    echo json_encode(array("message" => "Unable to delete person."));
+    echo json_encode(array("message" => "Unable to update employee."));
 }
 ?>

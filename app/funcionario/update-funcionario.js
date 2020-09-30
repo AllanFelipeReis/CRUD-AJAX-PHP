@@ -1,10 +1,10 @@
 $(document).ready(function(){
  
-    $(document).on('click', '.update-person-button', function(){
+    $(document).on('click', '.update-employee-button', function(){
 
         var id = $(this).attr('data-id');
 
-        $.getJSON("http://localhost/CRUD-AJAX-PHP/api/pessoa/read_one.php?id=" + id, function(data){
+        $.getJSON("http://localhost/CRUD-AJAX-PHP/api/funcionario/read_one.php?id=" + id, function(data){
         
             var name = data.name;
             var cpf = data.cpf;
@@ -17,12 +17,12 @@ $(document).ready(function(){
                 genders = ['Feminino', 'Masculino'];
             }
 
-            var update_person_html=`
-                <div id='read-person' class='btn btn-primary pull-right read-person-button'>
-                    <span class='glyphicon glyphicon-list'></span> Listar Pessoas
+            var update_employee_html=`
+                <div id='read-employee' class='btn btn-primary pull-right read-employee-button'>
+                    <span class='glyphicon glyphicon-list'></span> Listar Funcionários
                 </div>
 
-                <form id='update-person-form' action='#' method='post' border='0'>
+                <form id='update-employee-form' action='#' method='post' border='0'>
                     <table class='table table-hover table-responsive table-bordered'>
                 
                         <tr>
@@ -45,7 +45,7 @@ $(document).ready(function(){
                         </tr>
                 
                         <tr>
-                            <td>Data de Aniversario</td>
+                            <td>Data de Nascimento</td>
                             <td><input value=\"` + birthDate + `\" type='date' name='birthDate' class='form-control' required /></td>
                         </tr>
 
@@ -55,7 +55,7 @@ $(document).ready(function(){
                 
                             <td>
                                 <button type='submit' class='btn btn-info'>
-                                    <span class='glyphicon glyphicon-edit'></span> Atualizar Cadastro
+                                    <span class='glyphicon glyphicon-edit'></span> Atualizar
                                 </button>
                             </td>
                 
@@ -63,25 +63,25 @@ $(document).ready(function(){
                 
                     </table>
                 </form>`;
-            $("#page-content").html(update_person_html);
+            $("#page-content").html(update_employee_html);
             
-            changePageTitle("Atualiza Cadastro");
+            changePageTitle("Atualizar");
         });
         });
     });
      
-    $(document).on('submit', '#update-person-form', function(){
+    $(document).on('submit', '#update-employee-form', function(){
         
         var form_data=JSON.stringify($(this).serializeObject());
 
         $.ajax({
-            url: "http://localhost/CRUD-AJAX-PHP/api/pessoa/update.php",
+            url: "http://localhost/CRUD-AJAX-PHP/api/funcionario/update.php",
             type : "POST",
             contentType : 'application/json',
             data : form_data,
             success : function(result) {
 
-                showPeople();
+                showFuncionario();
             },
             error: function(xhr, resp, text) {
 
